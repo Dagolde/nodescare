@@ -1,0 +1,72 @@
+name: hhms_mobile
+description: Hospital Health Management System Mobile App
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Connectivity monitoring
+  connectivity_plus: ^5.0.2
+
+  # UI
+  cupertino_icons: ^1.0.6
+
+  # Cryptography (SHA-256 for certificate pinning)
+  crypto: ^3.0.3
+
+  # HTTP client
+  dio: ^5.4.0
+
+  # HTTP media types (used for multipart uploads)
+  http_parser: ^4.0.2
+
+  # Image & file picking
+  file_picker: ^8.1.2
+
+  # Push notifications
+  firebase_core: ^2.24.2
+  firebase_messaging: ^14.7.9
+
+  # PDF generation
+  pdf: ^3.10.7
+  printing: ^5.12.0
+
+  # Image picking
+  image_picker: ^1.0.7
+
+  # State management
+  flutter_riverpod: ^2.4.9
+
+  # Secure storage for tokens
+  flutter_secure_storage: ^9.0.0
+
+  # Path utilities
+  path: ^1.9.0
+  path_provider: ^2.1.1
+
+  # WebSocket / Real-time
+  pusher_channels_flutter: ^2.2.1
+
+  # Local storage for sync queue (v2 embedding compatible)
+  sqflite: ^2.3.2
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+
+dependency_overrides:
+  # Pin path_provider_android to last version before JNI was introduced
+  path_provider_android: 2.2.12

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- HHMS Favicon 16x16 — export as PNG then include in favicon.ico -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <rect width="16" height="16" rx="3" fill="#1A3A6B"/>
+  <rect x="6.5" y="3" width="3" height="10" rx="1" fill="#00B894"/>
+  <rect x="3" y="6.5" width="10" height="3" rx="1" fill="#00B894"/>
+</svg>

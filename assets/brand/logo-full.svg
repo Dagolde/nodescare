@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  HHMS Full Logo (horizontal lockup)
+  Icon + Wordmark
+  Dimensions: 400 x 100
+  Use for: web headers, documents, email signatures
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A3A6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D2347;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="crossGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4A8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00B894;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000030"/>
+    </filter>
+  </defs>
+
+  <!-- Shield / Icon Mark -->
+  <g filter="url(#shadow)">
+    <!-- Shield shape -->
+    <path d="M50 8 L82 20 L82 52 Q82 76 50 90 Q18 76 18 52 L18 20 Z"
+          fill="url(#shieldGrad)" rx="4"/>
+    <!-- Inner shield highlight -->
+    <path d="M50 14 L76 24 L76 52 Q76 72 50 84 Q24 72 24 52 L24 24 Z"
+          fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+    <!-- Medical cross -->
+    <rect x="43" y="30" width="14" height="38" rx="3" fill="url(#crossGrad)"/>
+    <rect x="31" y="42" width="38" height="14" rx="3" fill="url(#crossGrad)"/>
+    <!-- Pulse line accent -->
+    <polyline points="22,68 30,68 34,60 38,76 42,56 46,72 50,68 78,68"
+              fill="none" stroke="rgba(0,212,168,0.35)" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+    <!-- HHMS -->
+    <text x="102" y="52" font-size="38" font-weight="800" letter-spacing="-1"
+          fill="#1A3A6B">HHMS</text>
+    <!-- Tagline -->
+    <text x="103" y="70" font-size="11.5" font-weight="400" letter-spacing="2.5"
+          fill="#00B894" text-transform="uppercase">HOSPITAL HEALTH MANAGEMENT</text>
+  </g>
+</svg>

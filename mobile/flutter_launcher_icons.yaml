@@ -1,0 +1,33 @@
+# flutter_launcher_icons configuration
+# Run: flutter pub run flutter_launcher_icons
+#
+# BEFORE RUNNING:
+#   1. Export mobile/assets/icons/app_icon.svg as a 1024x1024 PNG:
+#      - Open app_icon.svg in a browser, or use Inkscape/GIMP
+#      - Save as mobile/assets/icons/app_icon.png
+#   2. Then run: flutter pub run flutter_launcher_icons
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.png"
+
+  # Android adaptive icon (API 26+)
+  adaptive_icon_background: "#1A3A6B"
+  adaptive_icon_foreground: "assets/icons/app_icon_foreground.png"
+
+  # iOS
+  remove_alpha_ios: true
+
+  # Web (PWA)
+  web:
+    generate: true
+    image_path: "assets/icons/app_icon.png"
+    background_color: "#1A3A6B"
+    theme_color: "#1A3A6B"
+
+  # Windows
+  windows:
+    generate: true
+    image_path: "assets/icons/app_icon.png"
+    icon_size: 48

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  HHMS Full Logo — White variant (for dark backgrounds)
+  Dimensions: 400 x 100
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <defs>
+    <linearGradient id="crossW" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4A8"/>
+      <stop offset="100%" style="stop-color:#00B894"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield outline (white) -->
+  <path d="M50 8 L82 20 L82 52 Q82 76 50 90 Q18 76 18 52 L18 20 Z"
+        fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+
+  <!-- Medical cross -->
+  <rect x="43" y="30" width="14" height="38" rx="3" fill="url(#crossW)"/>
+  <rect x="31" y="42" width="38" height="14" rx="3" fill="url(#crossW)"/>
+
+  <!-- Pulse line -->
+  <polyline points="22,68 30,68 34,60 38,76 42,56 46,72 50,68 78,68"
+            fill="none" stroke="rgba(0,212,168,0.5)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Wordmark white -->
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+    <text x="102" y="52" font-size="38" font-weight="800" letter-spacing="-1"
+          fill="#FFFFFF">HHMS</text>
+    <text x="103" y="70" font-size="11.5" font-weight="400" letter-spacing="2.5"
+          fill="rgba(0,212,168,0.9)">HOSPITAL HEALTH MANAGEMENT</text>
+  </g>
+</svg>

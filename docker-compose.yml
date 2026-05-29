@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  # PHP-FPM Service
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    container_name: hhms_php
+    working_dir: /var/www
+    volumes:
+      - ./backend:/var/www
+      - ./docker/php/php.ini:/usr/local/etc/php/conf.d/custom.ini
+    networks:
+      - hhms_network
+    depends_on:
+      - mysql_central
+      - redis
+    environment:
+      - DB_HOST=mysql_central
+      - REDIS_HOST=redis
+
+  # Nginx Service
+  nginx:
+    image: nginx:alpine
+    container_name: hhms_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./backend:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - hhms_network
+    depends_on:
+      - php
+
+  # MySQL Central (Landlord) Database
+  mysql_central:
+    image: mysql:8.0
+    container_name: hhms_mysql_central
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: hhms_central
+      MYSQL_USER: hhms_user
+      MYSQL_PASSWORD: hhms_password
+    volumes:
+      - mysql_central_data:/var/lib/mysql
+      - ./docker/mysql/init-tenant-dbs.sh:/docker-entrypoint-initdb.d/init-tenant-dbs.sh
+    networks:
+      - hhms_network
+    command: --default-authentication-plugin=mysql_native_password
+
+  # Redis Service
+  redis:
+    image: redis:7-alpine
+    container_name: hhms_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - hhms_network
+    command: redis-server --appendonly yes
+
+  # Soketi WebSocket Server
+  soketi:
+    image: quay.io/soketi/soketi:latest-16-alpine
+    container_name: hhms_soketi
+    ports:
+      - "6001:6001"
+      - "9601:9601"
+    environment:
+      SOKETI_DEBUG: '1'
+      SOKETI_DEFAULT_APP_ID: 'hhms-app'
+      SOKETI_DEFAULT_APP_KEY: 'hhms-app-key'
+      SOKETI_DEFAULT_APP_SECRET: 'hhms-app-secret'
+    networks:
+      - hhms_network
+
+networks:
+  hhms_network:
+    driver: bridge
+
+volumes:
+  mysql_central_data:
+  redis_data:
